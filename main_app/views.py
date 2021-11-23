@@ -1,17 +1,25 @@
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from .models import Jot, SubJot
+from django.views.generic.edit import CreateView
+from .models import Task, SubTask
+# from django.urls import reverse
 
 
 # Create your views here.
-class JotList(ListView):
-  model = Jot
-  context_object_name = 'jots'
+class TaskList(ListView):
+  model = Task
+  context_object_name = 'tasks'
 
-class SubJotList(ListView):
-  model = SubJot
+class TaskDetails(DetailView):
+  model = Task
+  context_object_name = 'task'
 
-class JotDetails(DetailView):
-  model = Jot
-  context_object_name = 'jot'
+class TaskCreate(CreateView):
+  model = Task
+  fields = '__all__'
+  success_url='/'
+
+class SubTaskList(ListView):
+  model = SubTask
+  context_object_name = 'subtasks'

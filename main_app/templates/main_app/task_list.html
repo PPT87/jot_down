@@ -4,18 +4,18 @@
 {% block content %}
 
 <h1>My Jots</h1>
-
+<a href="{% url 'task-create' %}">Add </a>
 <table>
 <tr>
   <th>Title</th>
   <th>Complete</th>
   <th></th>
 </tr>
-{% for jot in jots %}
+{% for task in tasks %}
 <tr>
-  <td>{{ jot.title }}</td>
-  <td>{{ jot.complete }}</td>
-  <td><a href="{% url 'jot' jot.id %}">View</a></td>
+  <td>{{ task.title }}</td>
+  <td>{{ task.complete }}</td>
+  <td><a href="{% url 'task' task.id %}">View</a></td>
 </tr>
 {% empty %}
 <h3>You have no jots</h3>

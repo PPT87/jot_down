@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<h1>My Jots</h1>
+
+<h2>{{ task.title }}</h2>
+
+<br>
+<br>
+
+<h4>Additional Jots</h4>
+
+<form action="" methon='POST'>
+  {{ form.as_p }}
+
+  <input type="submit" value="Submit">
+
+</form>
+
+
+{% endblock %}

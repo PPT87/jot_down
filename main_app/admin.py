@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Jot, SubJot
+from .models import Task, SubTask
 # Register your models here.
 
-admin.site.register(Jot)
-admin.site.register(SubJot)
+admin.site.register(Task)
+admin.site.register(SubTask)
