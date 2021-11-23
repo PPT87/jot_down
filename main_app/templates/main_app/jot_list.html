@@ -9,11 +9,13 @@
 <tr>
   <th>Title</th>
   <th>Complete</th>
+  <th></th>
 </tr>
 {% for jot in jots %}
 <tr>
   <td>{{ jot.title }}</td>
   <td>{{ jot.complete }}</td>
+  <td><a href="{% url 'jot' jot.id %}">View</a></td>
 </tr>
 {% empty %}
 <h3>You have no jots</h3>
