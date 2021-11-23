@@ -1,6 +1,6 @@
 from django.urls import path
-from . import views
+from . views import JotList
 
 urlpatterns = [
-    path('', views.home, name='home'),
+    path('', JotList.as_view(), name='jots'),
 ]

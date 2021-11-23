@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.views.generic.list import ListView
+from .models import Jot
 
 
 # Create your views here.
-def home(request):
-  return HttpResponse('hello this is working!')
+class JotList(ListView):
+  model = Jot

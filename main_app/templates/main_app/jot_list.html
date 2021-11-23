@@ -1,0 +1,13 @@
+<h1>My Jot Lists</h1>
+
+<table>
+<tr>
+  <td>Title</td>
+</tr>
+{% for jot in object_list %}
+<tr>
+  <td>{{ jot.title }}</td>
+</tr>
+
+{% endfor %}
+</table>
