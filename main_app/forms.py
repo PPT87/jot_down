@@ -1,9 +1,12 @@
-from django import forms
 from django.forms import ModelForm
+from .models import Task, SubTask
 
-from .models import Task, SubTask 
-
-class TaskForm(forms.ModelForm):  
+class TaskForm(ModelForm):  
   class Meta:
     model = Task
-    fields = '__all__'
+    fields = ['title', 'complete']
+
+class SubTaskForm(ModelForm):
+  class Meta:
+    model = SubTask
+    fields = ['title', 'complete']

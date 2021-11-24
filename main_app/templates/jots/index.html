@@ -3,24 +3,19 @@
 
 {% block content %}
 
-
-<form action="/" methon='POST'>
-
-  {{ form }}
-  <input type="submit" value="Submit">
-</form>
-<br>
-<br>
-
 <h5>My Jots</h5>
 <br>
 {% for task in tasks %}
-<div>
-  <p>{{ task }}</p>
-</div>
+<class="card" style="width: 18rem;">
+<a href="{% url 'jots_detail' task.id %}">
+  <div class="card-body">
+    <h5 class="card-title">{{ task.title }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Count of subtasks</h6>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</a>
 
 {% endfor %}
 
-</table>
-
 {% endblock %}
+

@@ -3,7 +3,7 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from .models import Task, SubTask
-from .forms import TaskForm
+from .forms import TaskForm, SubTaskForm
 # from django.urls import reverse
 
 
@@ -31,3 +31,7 @@ def signup(request):
   form = UserCreationForm()
   context = {'form': form, 'error_message': error_message}
   return render(request, 'signup.html', context)
+
+def jots_detail(request, jot_id):
+  task = Task.objects.get(id=jot_id)
+  return render(request, 'jots/detail.html', { 'task': task })
