@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView
+from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from .models import Task, SubTask
 from .forms import TaskForm
@@ -13,16 +14,6 @@ class Home(LoginView):
 def jots_index(request):
   tasks = Task.objects.filter(user=request.user)
   return render(request, 'jots/index.html', {'tasks': tasks})
-
-  # form = TaskForm()
-
-  # if request.method == "POST":
-  #   form = TaskForm(request.POST)
-  #   if form.is_valid():
-  #     form.save()
-  #   return redirect('/jots')
-  # context = {'tasks':tasks, 'form':form}
-  # return render(request, 'jots/task_list.html', context)
 
 def about(request):
   return render(request, 'about.html')
