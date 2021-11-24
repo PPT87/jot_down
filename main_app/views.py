@@ -1,25 +1,22 @@
-from django.shortcuts import render
-from django.views.generic.list import ListView
-from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView
+from django.shortcuts import render, redirect
 from .models import Task, SubTask
+from .forms import TaskForm
 # from django.urls import reverse
 
 
 # Create your views here.
-class TaskList(ListView):
-  model = Task
-  context_object_name = 'tasks'
+def task_list(request):
+  tasks = Task.objects.all()
 
-class TaskDetails(DetailView):
-  model = Task
-  context_object_name = 'task'
+  form = TaskForm()
 
-class TaskCreate(CreateView):
-  model = Task
-  fields = '__all__'
-  success_url='/'
+  if request.method == "POST":
+    form = TaskForm(request.POST)
+    if form.is_valid():
+      form.save()
+    return redirect('/')
+  context = {'tasks':tasks, 'form':form}
+  return render(request, 'jots/task_list.html', context)
 
-class SubTaskList(ListView):
-  model = SubTask
-  context_object_name = 'subtasks'
+def about(request):
+  return render(request, 'about.html')
