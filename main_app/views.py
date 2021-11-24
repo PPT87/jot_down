@@ -13,15 +13,16 @@ class Home(LoginView):
   template_name = 'home.html'
 
 def jots_index(request):
-  if request.method == "POST":
-    form = TaskForm (request.POST)
-    if form.is_valid():
-      form.save()
-      tasks = Task.objects.all()
-      return render(request, 'jots/index.html', {'tasks': tasks})
-  else:
-    tasks = Task.objects.filter(user=request.user)
-    return render(request, 'jots/index.html', {'tasks': tasks})
+  tasks = Task.objects.filter(user=request.user)
+  form = TaskForm()
+  context = {'tasks': tasks, 'form': form}
+  return render(request, 'jots/index.html', context)
+
+def jotCreate(request):
+  form = TaskForm(request.POST)
+  if form.is_valid:
+    form.save()
+  return redirect('jots_index')
 
 def about(request):
   return render(request, 'about.html')

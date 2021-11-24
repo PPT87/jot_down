@@ -4,7 +4,7 @@ from .models import Task, SubTask
 class TaskForm(ModelForm):  
   class Meta:
     model = Task
-    fields = '__all__'
+    fields = ['title', 'complete']
 
 class SubTaskForm(ModelForm):
   class Meta:
