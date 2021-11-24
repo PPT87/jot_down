@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView
+from django.contrib.auth.forms import UserCreationForm
 from .models import Task, SubTask
 from .forms import TaskForm
 # from django.urls import reverse
@@ -9,18 +10,33 @@ from .forms import TaskForm
 class Home(LoginView):
   template_name = 'home.html'
 
-def task_list(request):
-  tasks = Task.objects.all()
+def jots_index(request):
+  tasks = Task.objects.filter(user=request.user)
+  return render(request, 'jots/index.html', {'tasks': tasks})
 
-  form = TaskForm()
+  # form = TaskForm()
 
-  if request.method == "POST":
-    form = TaskForm(request.POST)
-    if form.is_valid():
-      form.save()
-    return redirect('/jots')
-  context = {'tasks':tasks, 'form':form}
-  return render(request, 'jots/task_list.html', context)
+  # if request.method == "POST":
+  #   form = TaskForm(request.POST)
+  #   if form.is_valid():
+  #     form.save()
+  #   return redirect('/jots')
+  # context = {'tasks':tasks, 'form':form}
+  # return render(request, 'jots/task_list.html', context)
 
 def about(request):
   return render(request, 'about.html')
+
+def signup(request):
+  error_message = ''
+  if request.method == 'POST':
+    form = UserCreationForm(request.POST)
+    if form.is_valid():
+      user = form.save()
+      login(request, user)
+      return redirect('jots_index')
+    else:
+      error_message = 'Invalid sign up - try again'
+  form = UserCreationForm()
+  context = {'form': form, 'error_message': error_message}
+  return render(request, 'signup.html', context)
