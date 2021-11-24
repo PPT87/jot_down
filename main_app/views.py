@@ -20,9 +20,14 @@ def jots_index(request):
 
 def jotCreate(request):
   form = TaskForm(request.POST)
-  if form.is_valid:
+  if form.is_valid():
     form.save()
   return redirect('jots_index')
+
+def deleteJot(request, id):
+    task = Task.objects.get(pk = id)
+    task.delete()
+    return redirect('jots_index')
 
 def about(request):
   return render(request, 'about.html')

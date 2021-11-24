@@ -3,18 +3,19 @@
 
 {% block content %}
 
-<form method="POST" action="">
-		{% csrf_token %}
-		{{ form }}
-		<input class="btn btn-info" type="submit" name="Create Task">
-	</form>
-
+<form action="" method="post" class="form-container">
+  {% csrf_token %}
+    {{ form.as_p }} 
+    <button type="submit" class="btn btn-primary">Submit!</button>
+</form>
+<br>
 <h5>My Jots</h5>
 <br>
-{% for task in tasks %}
+
 <section class="section">
         <table class="table is-hoverable is-fullwidth">
             <thead>
+            {% for task in tasks %}
             <tr>
                 <th>Task</th>
                 <th>Completed</th>
@@ -38,14 +39,13 @@
                         {% endif %}
                     </td>
                     <td>
-                        <i class="bi bi-trash"></i>
+                      <a href="{% url 'jot_delete' task.id %}"> 
+                        <button><i class="bi bi-trash"></i></button>
                     </td>
                 </tr>
-
+            {% endfor %}  
         </table>
     </section>
-
-{% endfor %}
 
 {% endblock %}
 

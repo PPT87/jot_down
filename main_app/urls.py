@@ -7,5 +7,6 @@ urlpatterns = [
   path('about/', views.about, name='about'),
   path('accounts/signup/', views.signup, name='signup'),
   path('jots/<int:jot_id>/', views.jots_detail, name='jots_detail'),
-  path('jots/create', views.jotCreate, name="jot_create")
+  path('jots/create', views.jotCreate, name="jot_create"),
+  path('jots/delete/<int:id>', views.deleteJot, name="jot_delete"),
 ]
