@@ -2,13 +2,16 @@
 {% extends 'base.html'%}
 
 {% block content %}
+<form action="" method="post">
+        {% csrf_token %}
+        <div class="input-group mb-3 shadow bg-white">
+            {{ form.title }}
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Jot Down!</button>
+            </div>
+        </div>
+    </form>
 
-<form action="" method="post" class="form-container">
-  {% csrf_token %}
-    {{ form.as_p }} 
-    <button type="submit" class="btn btn-primary">Submit!</button>
-</form>
-<br>
 <h5>My Jots</h5>
 <br>
 
@@ -33,9 +36,9 @@
                     </td>
                     <td>
                         {% if task.complete == True %}
-                            <i class="bi bi-check2-circle"></i> {{ task.complete }}
+                            <i class="far fa-check-circle"></i> {{ task.complete }}
                         {% else %}
-                            <i class="bi bi-circle"></i> {{ task.complete }}
+                            <i class="far fa-circle"></i> {{ task.complete }}
                         {% endif %}
                     </td>
                     <td>
