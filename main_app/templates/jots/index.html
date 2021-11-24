@@ -3,17 +3,47 @@
 
 {% block content %}
 
+<form method="POST" action="">
+		{% csrf_token %}
+		{{ form }}
+		<input class="btn btn-info" type="submit" name="Create Task">
+	</form>
+
 <h5>My Jots</h5>
 <br>
 {% for task in tasks %}
-<class="card" style="width: 18rem;">
-<a href="{% url 'jots_detail' task.id %}">
-  <div class="card-body">
-    <h5 class="card-title">{{ task.title }}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Count of subtasks</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</a>
+<section class="section">
+        <table class="table is-hoverable is-fullwidth">
+            <thead>
+            <tr>
+                <th>Task</th>
+                <th>Completed</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+                <tr>
+                <a href="{% url 'jots_detail' task.id %}"></a>
+                    <td>
+                        {% if task.complete == True %}
+                            <span style="text-decoration: line-through"><a href="{% url 'jots_detail' task.id %}">{{ task.title }}</a></span>
+                        {% else %}
+                            <a href="{% url 'jots_detail' task.id %}">{{ task.title }}</a>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if task.complete == True %}
+                            <i class="bi bi-check2-circle"></i> {{ task.complete }}
+                        {% else %}
+                            <i class="bi bi-circle"></i> {{ task.complete }}
+                        {% endif %}
+                    </td>
+                    <td>
+                        <i class="bi bi-trash"></i>
+                    </td>
+                </tr>
+
+        </table>
+    </section>
 
 {% endfor %}
 
