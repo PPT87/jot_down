@@ -1,22 +1,22 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Task, SubTask
+from .models import Jot, SubJot
 
-class TaskForm(forms.ModelForm):  
+class JotForm(forms.ModelForm):  
   title = forms.CharField(max_length = 250, widget = forms.TextInput(attrs = {'class' : 'form-control','placeholder' : 'Jot Down New Item', 
         }
     )
 )
   class Meta:
-    model = Task
+    model = Jot
     fields = ['title']
 
-class SubTaskForm(forms.ModelForm):
-  class TaskForm(forms.ModelForm):  
+class SubJotForm(forms.ModelForm):
+  class JotForm(forms.ModelForm):  
     title = forms.CharField(max_length = 250, widget = forms.TextInput(attrs = {'class' : 'form-control','placeholder' : 'Jot Down New Item', 
         }
     )
 )
   class Meta:
-    model = SubTask
+    model = SubJot
     fields = ['title']

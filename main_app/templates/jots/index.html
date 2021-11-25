@@ -2,6 +2,8 @@
 {% extends 'base.html'%}
 
 {% block content %}
+<br>
+
 <form action="" method="post">
         {% csrf_token %}
         <div class="input-group mb-3 shadow bg-white">
@@ -11,38 +13,38 @@
             </div>
         </div>
     </form>
-
+<br>
 <h5>My Jots</h5>
 <br>
 
-<section class="section">
+<section class="section"> 
         <table class="table is-hoverable is-fullwidth">
             <thead>
-            {% for task in tasks %}
             <tr>
                 <th>Task</th>
                 <th>Completed</th>
                 <th>Delete</th>
             </tr>
             </thead>
+            {% for jot in jots %}
                 <tr>
-                <a href="{% url 'jots_detail' task.id %}"></a>
+                <a href="{% url 'jot_detail' jot.id %}"></a>
                     <td>
-                        {% if task.complete == True %}
-                            <span style="text-decoration: line-through"><a href="{% url 'jots_detail' task.id %}">{{ task.title }}</a></span>
+                        {% if jot.complete == True %}
+                            <span style="text-decoration: line-through"><a href="{% url 'jot_detail' jot.id %}">{{ jot.title }}</a></span>
                         {% else %}
-                            <a href="{% url 'jots_detail' task.id %}">{{ task.title }}</a>
+                            <a href="{% url 'jot_detail' jot.id %}">{{ jot.title }}</a>
                         {% endif %}
                     </td>
                     <td>
-                        {% if task.complete == True %}
-                            <i class="far fa-check-circle"></i> {{ task.complete }}
+                        {% if jot.complete == True %}
+                            <i class="far fa-check-circle"></i> {{ jot.complete }}
                         {% else %}
-                            <i class="far fa-circle"></i> {{ task.complete }}
+                            <i class="far fa-circle"></i> {{ jot.complete }}
                         {% endif %}
                     </td>
                     <td>
-                      <a href="{% url 'jot_delete' task.id %}"> 
+                      <a href="{% url 'jot_delete' jot.id %}"> 
                         <button><i class="bi bi-trash"></i></button>
                     </td>
                 </tr>

@@ -6,7 +6,8 @@ urlpatterns = [
   path('jots/', views.jots_index, name='jots_index'),
   path('about/', views.about, name='about'),
   path('accounts/signup/', views.signup, name='signup'),
-  path('jots/<int:jot_id>/', views.jots_detail, name='jots_detail'),
-  path('jots/create', views.jotCreate, name="jot_create"),
+  path('jots/<int:jot_id>/', views.jot_detail, name='jot_detail'),
+  path('jots/create', views.jotCreate.as_view(), name="jot_create"),
+  # path('jots/createsub', views.jotCreatesub, name="jot_createsub"),
   path('jots/delete/<int:id>', views.deleteJot, name="jot_delete"),
 ]
