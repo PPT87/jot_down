@@ -4,7 +4,7 @@
 {% block content %}
 <br>
 
-<form action="" method="post">
+<form action="{% url 'jot_create' %}" method="post">
         {% csrf_token %}
         <div class="input-group mb-3 shadow bg-white">
             {{ form.title }}
@@ -25,7 +25,7 @@
                 <th>Completed</th>
                 <th>Delete</th>
             </tr>
-            </thead>
+            </thead> 
             {% for jot in jots %}
                 <tr>
                 <a href="{% url 'jot_detail' jot.id %}"></a>

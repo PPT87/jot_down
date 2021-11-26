@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.views.generic import ListView, DetailView   
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Jot, SubJot
 from .forms import JotForm, SubJotForm
@@ -29,20 +30,15 @@ class jotCreate(CreateView):
     return super().form_valid(form)
 
 def deleteJot(request, id):
-    jot = Jot.objects.get(pk = id)
+    jot = Jot.objects.get(pk=id)
     jot.delete()
     return redirect('jots_index')
 
 def jot_detail(request, jot_id):
   jot = Jot.objects.get(id=jot_id)
-  context = {'jot': jot}
+  subjot_form = SubJotForm()
+  context = {'jot': jot, 'subjot_form': subjot_form}
   return render(request, 'jots/detail.html', context)
-
-# def jotCreatesub(request):
-#   subform = SubTaskForm(request.POST)
-#   if subform.is_valid():
-#     subform.save()
-#   return redirect('jots/detail.html')
 
 def signup(request):
   error_message = ''
