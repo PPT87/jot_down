@@ -27,7 +27,7 @@ class SubJot(models.Model):
     return '%s - %s' % (self.jot.title, self.title)
 
   def get_absolute_url(self):
-    return reverse('jots_detail')
+    return reverse('jots_detail', kwargs={'jot_id': self.jot.id})
 
   class Meta:
     ordering =['complete']
