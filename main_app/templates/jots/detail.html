@@ -9,17 +9,25 @@
 <br>
 
 <h4>Additional Jots</h4>
-<form action="" method="post">
+<form action="{% url 'subjot_create' %}" method="post">
         {% csrf_token %}
         <div class="input-group mb-3 shadow bg-white">
             {{ subjot_form.title }}
             <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Jot Down!</button>
+                <button class="btn btn-success" type="submit" id="button-addon2">Jot Down!</button>
             </div>
         </div>
     </form>
 
-    <section class="section"> 
+    {% if not jot.subjots.all %}
+      <h3>You have no additional subjots</h3>
+    {% else %}
+      {% for subjot in jot.subjots.all %}
+        {{ subjot.title}}
+      {% endfor %}
+    {% endif %}
+    
+<section class="section"> 
         <table class="table is-hoverable is-fullwidth">
             <thead>
             <tr>
@@ -28,25 +36,25 @@
                 <th>Delete</th>
             </tr>
             </thead>
-            {% for jot in jots %}
+            {% for subjot in jot.subjots.all %}
                 <tr>
-                <a href="{% url 'jot_detail' jot.id %}"></a>
+                <a href=""></a>
                     <td>
-                        {% if jot.complete == True %}
-                            <span style="text-decoration: line-through"><a href="{% url 'jot_detail' jot.id %}">{{ jot.title }}</a></span>
+                        {% if subjot.complete == True %}
+                            <span style="text-decoration: line-through">{{ subjot.title }}</span>
                         {% else %}
-                            <a href="{% url 'jot_detail' jot.id %}">{{ jot.title }}</a>
+                            {{ subjot.title }}
                         {% endif %}
                     </td>
                     <td>
-                        {% if jot.complete == True %}
-                            <i class="far fa-check-circle"></i> {{ jot.complete }}
+                        {% if subjot.complete == True %}
+                            <i class="far fa-check-circle"></i> {{ subjot.complete }}
                         {% else %}
-                            <i class="far fa-circle"></i> {{ jot.complete }}
+                            <i class="far fa-circle"></i> {{ subjot.complete }}
                         {% endif %}
                     </td>
                     <td>
-                      <a href="{% url 'jot_delete' jot.id %}"> 
+                      <a href=""> 
                         <button><i class="bi bi-trash"></i></button>
                     </td>
                 </tr>

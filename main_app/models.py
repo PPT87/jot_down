@@ -21,10 +21,13 @@ class SubJot(models.Model):
   title = models.CharField(max_length=200)
   complete = models.BooleanField(default=False)
 
-  jot = models.ForeignKey(Jot, on_delete=models.CASCADE)
+  jot = models.ForeignKey(Jot, related_name="subjots", on_delete=models.CASCADE)
 
   def __str__(self):
-    return self.title
+    return (self.jot.title, self.title)
+
+  def get_absolute_url(self):
+    return reverse('jot_detail')
 
   class Meta:
     ordering =['complete']

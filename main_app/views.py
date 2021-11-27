@@ -29,6 +29,13 @@ class jotCreate(CreateView):
     form.instance.user = self.request.user
     return super().form_valid(form)
 
+class subjotCreate(CreateView):
+  model = SubJot
+  fields = ['title']
+  def form_valid(self, form):
+    form.instance.user = self.request.user
+    return super().form_valid(form)
+
 def deleteJot(request, id):
     jot = Jot.objects.get(pk=id)
     jot.delete()
