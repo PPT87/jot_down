@@ -24,14 +24,14 @@ def jots_index(request):
 
 class jotCreate(CreateView):
   model = Jot
-  fields = ['title']
+  fields = ['title', 'complete']
   def form_valid(self, form):
     form.instance.user = self.request.user
     return super().form_valid(form)
 
 class subjotCreate(CreateView):
   model = SubJot
-  fields = ['title']
+  fields = ['title', 'complete']
   def form_valid(self, form):
     form.instance.user = self.request.user
     return super().form_valid(form)
