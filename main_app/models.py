@@ -24,7 +24,7 @@ class SubJot(models.Model):
   jot = models.ForeignKey(Jot, related_name="subjots", on_delete=models.CASCADE)
 
   def __str__(self):
-    return (self.jot.title, self.title)
+    return '%s - %s' % (self.jot.title, self.title)
 
   def get_absolute_url(self):
     return reverse('jot_detail')

@@ -19,14 +19,6 @@
         </div>
     </form>
 
-    {% if not jot.subjots.all %}
-      <h3>You have no additional subjots</h3>
-    {% else %}
-      {% for subjot in jot.subjots.all %}
-        {{ subjot.title}}
-      {% endfor %}
-    {% endif %}
-    
 <section class="section"> 
         <table class="table is-hoverable is-fullwidth">
             <thead>
