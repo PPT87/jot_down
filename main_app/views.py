@@ -24,7 +24,7 @@ def jots_index(request):
 
 class jotCreate(CreateView):
   model = Jot
-  fields = ['title', 'complete']
+  fields = ['title', 'complete'] 
   def form_valid(self, form):
     form.instance.user = self.request.user
     return super().form_valid(form)
@@ -41,12 +41,17 @@ def deleteJot(request, jot_id):
     jot.delete()
     return redirect('jots_index')
 
-# def deletesubJot(request, subjot_id, jot_id):
-#     jot = Jot.objects.get(id=jot_id)
-#     subjot = SubJot.objects.get(id=subjot_id)
-#     subjot.delete()
-#     return redirect('jots_detail', args=[str(jot_id)])
+def completeJot(request, jot_id):
+  jot = Jot.objects.get(pk=jot_id)
+  jot.complete = True
+  jot.save()
+  return redirect('jots_index')
 
+def completesubJot(request, subjot_id):
+  subjot = SubJot.objects.get(pk=subjot_id)
+  subjot.complete = True
+  subjot.save()
+  return redirect('jots_index')
 
 def jots_detail(request, jot_id):
   jot = Jot.objects.get(id=jot_id)
