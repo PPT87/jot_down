@@ -12,11 +12,10 @@ class JotForm(forms.ModelForm):
     fields = ['title']
 
 class SubJotForm(forms.ModelForm):
-  class JotForm(forms.ModelForm):  
-    title = forms.CharField(max_length = 250, widget = forms.TextInput(attrs = {'class' : 'form-control','placeholder' : 'Jot Down New Item', 
+    title = forms.CharField(max_length = 250, widget = forms.TextInput(attrs = {'class' : 'form-control','placeholder' : 'Add Sub Jot', 
         }
     )
 )
-  class Meta:
-    model = SubJot
-    fields = ['title']
+    class Meta:
+      model = SubJot
+      fields = ['title']
