@@ -47,10 +47,10 @@ def completeJot(request, jot_id):
   jot.save()
   return redirect('jots_index')
 
-def completesubJot(request, subjot_id):
-  subjot = SubJot.objects.get(pk=subjot_id)
-  subjot.complete = True
-  subjot.save()
+def incompleteJot(request, jot_id):
+  jot = Jot.objects.get(pk=jot_id)
+  jot.complete = False
+  jot.save()
   return redirect('jots_index')
 
 def jots_detail(request, jot_id):

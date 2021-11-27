@@ -40,7 +40,7 @@
                     </td>
                     <td>
                         {% if jot.complete %}
-                            <i class="far fa-check-circle"></i> {{ jot.complete }}
+                            <a href="{% url 'jot_incomplete' jot.id %}"><i class="far fa-check-circle"></i> {{ jot.complete }} </a>
                         {% else %}
                             <a href="{% url 'jot_complete' jot.id %}"><i class="far fa-circle"></i> {{ jot.complete }} </a>
                         {% endif %}
