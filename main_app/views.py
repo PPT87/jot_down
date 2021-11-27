@@ -33,15 +33,16 @@ class subjotCreate(CreateView):
   model = SubJot
   fields = ['title', 'complete']
   def form_valid(self, form):
-    form.instance.user = self.request.user
+    form.instance.jot_id = self.kwargs['jot_id']
     return super().form_valid(form)
 
-def deleteJot(request, id):
-    jot = Jot.objects.get(pk=id)
+def deleteJot(request, jot_id):
+    jot = Jot.objects.get(id=jot_id)
     jot.delete()
     return redirect('jots_index')
 
-def jot_detail(request, jot_id):
+
+def jots_detail(request, jot_id):
   jot = Jot.objects.get(id=jot_id)
   subjot_form = SubJotForm()
   context = {'jot': jot, 'subjot_form': subjot_form}

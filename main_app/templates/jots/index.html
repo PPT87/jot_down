@@ -31,12 +31,12 @@
             </thead> 
             {% for jot in jots %}
                 <tr>
-                <a href="{% url 'jot_detail' jot.id %}"></a>
+                <a href="{% url 'jots_detail' jot.id %}"></a>
                     <td>
                         {% if jot.complete == True %}
-                            <span style="text-decoration: line-through"><a href="{% url 'jot_detail' jot.id %}">{{ jot.title }}</a></span>
+                            <span style="text-decoration: line-through"><a href="{% url 'jots_detail' jot.id %}">{{ jot.title }}</a></span>
                         {% else %}
-                            <a href="{% url 'jot_detail' jot.id %}">{{ jot.title }}</a>
+                            <a href="{% url 'jots_detail' jot.id %}">{{ jot.title }}</a>
                         {% endif %}
                     </td>
                     <td>
