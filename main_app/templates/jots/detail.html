@@ -7,7 +7,6 @@
 </section>
 <br>
 <br>
-
 <h4>Additional Jots</h4>
 <form action="{% url 'subjot_create' jot.id %}" method="post">
         {% csrf_token %}
@@ -18,8 +17,6 @@
             </div>
         </div>
     </form>
-
-
 {% if not jot.subjots.all %}
       <h3>You have no additional subjots</h3>
     {% else %}
@@ -34,9 +31,9 @@
             </thead>
             {% for subjot in jot.subjots.all %}
                 <tr>
-                <a href="{% url 'subjot_create' jot.id %}"></a>
+                
                     <td>
-                        {% if subjot.complete == True %}
+                        {% if subjot.complete %}
                             <span style="text-decoration: line-through">{{ subjot.title }}</span>
                         {% else %}
                             {{ subjot.title }}
@@ -52,6 +49,7 @@
                     <td>
                       <a href=""> 
                         <button><i class="bi bi-trash"></i></button>
+                        </a>
                     </td>
                 </tr>
             {% endfor %}  

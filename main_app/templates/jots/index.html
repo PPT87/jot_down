@@ -14,12 +14,11 @@
         </div>
     </form>
 <br>
-<h5>My Jots</h5>
-<br>
-
 {% if not jots %}
       <h3>You have no jots</h3>
     {% else %}
+<h5>My Jots</h5>
+<br>
 <section class="section"> 
         <table class="table is-hoverable is-fullwidth">
             <thead>
@@ -31,16 +30,16 @@
             </thead> 
             {% for jot in jots %}
                 <tr>
-                <a href="{% url 'jots_detail' jot.id %}"></a>
+                
                     <td>
-                        {% if jot.complete == True %}
+                        {% if jot.complete %}
                             <span style="text-decoration: line-through"><a href="{% url 'jots_detail' jot.id %}">{{ jot.title }}</a></span>
                         {% else %}
                             <a href="{% url 'jots_detail' jot.id %}">{{ jot.title }}</a>
                         {% endif %}
                     </td>
                     <td>
-                        {% if jot.complete == True %}
+                        {% if jot.complete %}
                             <i class="far fa-check-circle"></i> {{ jot.complete }}
                         {% else %}
                             <i class="far fa-circle"></i> {{ jot.complete }}

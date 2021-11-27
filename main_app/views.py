@@ -41,6 +41,12 @@ def deleteJot(request, jot_id):
     jot.delete()
     return redirect('jots_index')
 
+# def deletesubJot(request, subjot_id, jot_id):
+#     jot = Jot.objects.get(id=jot_id)
+#     subjot = SubJot.objects.get(id=subjot_id)
+#     subjot.delete()
+#     return redirect('jots_detail', args=[str(jot_id)])
+
 
 def jots_detail(request, jot_id):
   jot = Jot.objects.get(id=jot_id)
