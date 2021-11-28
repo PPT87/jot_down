@@ -1,49 +1,55 @@
 {% extends 'base.html'%}
+{% load static %}
 
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+
 <br>
 
 <form action="{% url 'jot_create' %}" method="post">
   {% csrf_token %}
-  <div class="input-group mb-3 shadow bg-white">
+  <div class="input-group mb-1">
     {{ form.title }}
+    <button class="btn btn-success" type="submit" id="button-addon2">Jot Down!</button>
     <div class="input-group-append">
-      <button class="btn btn-success" type="submit" id="button-addon2">Jot Down!</button>
     </div>
   </div>
 </form>
+
 <br>
 {% if not jots %}
 <h3>You have no jots</h3>
 {% else %}
 <div class="row mt-4">
-  <div class="col-8">
+  <div class="col-9">
     <h2 class="card-title">My Jots</h2>
   </div>
-  <div class="col-2">
+  {% comment %} <div class="col-2">
     <a href="">
       <button type="button" class="btn btn-sm btn-outline-info rounded-pill">Remove Completed</button>
     </a>
-  </div>
+  </div> {% endcomment %}
   <br>
+
   {% for jot in jots %}
-  <div class="card mt-2 shadow-sm">
+  <div class="card mt-3 shadow-sm">
     <div class="card-body">
       <div class="row">
-        <div class="col-10">
+        <div class="col-11">
           <a href="">
             {% if jot.complete %}
             <a href="{% url 'jot_incomplete' jot.id %}"><i class="far fa-check-circle"></i></a> &nbsp; &nbsp; <span
-          style="text-decoration: line-through"><a href="{% url 'jots_detail' jot.id %}">{{ jot.title }}</a></span>
+              style="text-decoration: line-through"><a href="{% url 'jots_detail' jot.id %}">{{ jot.title }}</a></span>
             {% else %}
             <a href="{% url 'jot_complete' jot.id %}"><i class="far fa-circle"></i></a> &nbsp; &nbsp;<a
-          href="{% url 'jots_detail' jot.id %}">{{ jot.title }}</a>
+              href="{% url 'jots_detail' jot.id %}">{{ jot.title }}</a>
             {% endif %}
           </a>
-        </div>        
+        </div>
+
         <div class="col-1">
           <a href="{% url 'jot_delete' jot.id %}">
-            <button type="submit"><i class="bi bi-trash"></i></button>
+            <button class='trash' type="submit"><i class="bi bi-trash"></i></button>
           </a>
         </div>
       </div>

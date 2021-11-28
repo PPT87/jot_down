@@ -49,10 +49,11 @@ def deletesubJot(request, subjot_id):
   subjot.delete()
   return HttpResponseRedirect(reverse('jots_detail'))
 
-def deletecompleteJot(request):
-  completedJots = Jot.objects.filter(completed__exact=True).delete()
+def deletecompleteJot(request, jot_id):
+  delete= Jot.objects.filter(id=jot_id)
+  delete.complete = True
+  delete.save()
   return redirect('jots_index')
-
 
 def completeJot(request, jot_id):
   jot = Jot.objects.get(pk=jot_id)

@@ -1,0 +1,81 @@
+body{
+  background-color: rgb(80, 80, 80);
+  background-repeat: no-repeat;
+  background-size: contain;
+  font-family: 'Nunito', sans-serif;
+}
+
+a{
+  color: rgb(37, 37, 37);
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.card-body{
+  background-color: rgb(231, 191, 12);
+  border: black;
+  border-radius: 10px;
+  transition: all 0.2s ease-in-out;
+  width: auto;
+}
+
+.card-body:hover{
+  background-color: rgb(216, 211, 211);
+}
+
+.card{
+  background-color: rgb(37, 37, 37);
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+.card-title{
+  color: aliceblue;
+  margin-left: 20%;
+  font-size: 3rem;
+  font-weight: 900;
+  text-decoration: underline;
+}
+
+.far{
+  margin-left: 2%;
+}
+
+.form-control{
+  border-radius: 0;
+  height: 3rem;
+}
+
+.input-group {
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+.row>* {
+  padding-right:0;
+  padding-left: 0;
+}
+
+.rounded-pill{
+  margin-right: 10%;
+}
+
+.trash{
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  color: red;
+  cursor: pointer;
+  font-size: 1.4rem;
+  margin-right: 0;
+  overflow: hidden;
+  outline: none;
+  transition: all .3s ease-in-out;
+}
+
+.trash:hover{
+  transform: scale(1.3);
+}
