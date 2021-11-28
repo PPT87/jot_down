@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
@@ -40,6 +42,12 @@ def deleteJot(request, jot_id):
     jot = Jot.objects.get(id=jot_id)
     jot.delete()
     return redirect('jots_index')
+
+def deletesubJot(request, subjot_id):
+  subjot = SubJot.objects.get(id=subjot_id)
+  subjot.delete()
+  return redirect('jots_index')
+
 
 def completeJot(request, jot_id):
   jot = Jot.objects.get(pk=jot_id)
