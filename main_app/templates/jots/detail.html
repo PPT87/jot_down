@@ -1,58 +1,68 @@
 {% extends 'base.html'%}
+{% load static %}
 
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/detail.css' %}">
 
-<section class="section"> 
+
 <br>
-  <h1>{{ jot.title }}</h1>
-</section>
+<div class='title-wrapper'>
+    <h1>{{ jot.title }}</h1>
+</div>
 <br>
 <br>
-<form action="{% url 'subjot_create' jot.id %}" method="post">
+
+<div class='form-wrapper'>
+    <form action="{% url 'subjot_create' jot.id %}" method="post">
         {% csrf_token %}
-        <div class="input-group mb-3 shadow bg-white">
+        <div class="input-group mb-1">
             {{ subjot_form.title }}
+            <button class="btn btn-success" type="submit" id="button-addon2">Jot Down!</button>
             <div class="input-group-append">
-                <button class="btn btn-success" type="submit" id="button-addon2">Jot Down!</button>
             </div>
         </div>
     </form>
-  {% if not jot.subjots.all %}
-      <h3>You have no additional subjots</h3>
-  {% else %}
-    <section class="section"> 
-          <table class="table is-hoverable is-fullwidth">
-              <thead>
-              <tr>
-                  <th>Task</th>
-                  <th>Completed</th>
-                  <th>Delete</th>
-              </tr>
-              </thead>
-              {% for subjot in jot.subjots.all %}
-                  <tr>                  
-                      <td>
-                          {% if subjot.complete %}
-                              <span style="text-decoration: line-through">{{ subjot.title }}</span>
-                          {% else %}
-                              {{ subjot.title }}
-                          {% endif %}
-                      </td>
-                      <td>
-                          {% if subjot.complete %}
-                              <a href="#"><i class="far fa-check-circle"></i> {{ subjot.complete }} </a>
-                          {% else %}
-                              <a href="#"><i class="far fa-circle"></i> {{ subjot.complete }}</a>
-                          {% endif %}
-                      </td>
-                      <td>
-                        <a href="{% url 'subjot_delete' subjot.id %}"> 
-                          <button type="submit"><i class="bi bi-trash"></i></button>
-                          </a>
-                      </td>
-                  </tr>
-              {% endfor %}  
-          </table>
-      </section>
-  {% endif %}
-{% endblock %}
+</div>
+
+<br>
+{% if not jot.subjots.all %}
+<h3>You have no additional subjots</h3>
+{% else %}
+<div class="row mt-4">
+    <div class="col-9">
+        <h2 class="card-title">SubJots</h2>
+    </div>
+    <div class="col-2">
+        <a href="">
+            <button type="button" class="btn btn-sm btn-outline-info rounded-pill">Remove Completed</button>
+        </a>
+    </div>
+    <br>
+
+    {% for subjot in jot.subjots.all %}
+    <div class="card mt-3 shadow-sm">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-11">
+                    {% if subjot.complete %}
+                    <a href="#"><i class="far fa-check-circle"></i></a> &nbsp; &nbsp; <span
+                        style="text-decoration: line-through">{{ subjot.title }}</span>
+                    {% else %}
+                    <a href="#"><i class="far fa-circle"></i></a> &nbsp; &nbsp;{{ subjot.title }}
+                    {% endif %}
+                </div>
+
+                <div class="col-1">
+                    <a href="{% url 'subjot_delete' subjot.id %}">
+                        <button class='trash' type="submit"><i class="bi bi-trash"></i></button>
+                    </a>
+                </div>
+            </div>
+            {% if subjot.complete %}
+            <p class="card-text"><small class="text-muted">Complete</small></p>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+    {% endif%}
+    {% endblock %}

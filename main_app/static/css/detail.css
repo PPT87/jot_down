@@ -12,7 +12,7 @@ a{
 }
 
 .btn-success{
-  margin-top: 60px;
+  margin-top: 35px;
 }
 
 .card-body{
@@ -50,12 +50,12 @@ a{
 .form-control{
   border-radius: 0;
   height: 3rem;
-  margin-top: 60px;
+  margin-top: 35px;
 }
 
 .form-wrapper{
   background-color: rgba(246, 244, 240, 0.3);
-  height: 180px;
+  height: 120px;
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -75,6 +75,12 @@ a{
 
 .rounded-pill{
   margin-right: 10%;
+}
+
+.title-wrapper{
+  background-color: rgba(246, 244, 240, 0.3);
+  color: aliceblue;
+  height: 160px;
 }
 
 .trash{
