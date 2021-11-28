@@ -31,9 +31,9 @@
                 <tr>                
                     <td>
                         {% if jot.complete %}
-                            <a href="{% url 'jot_incomplete' jot.id %}"><i class="far fa-check-circle"></i></a><span style="text-decoration: line-through"><a href="{% url 'jots_detail' jot.id %}">{{ jot.title }}</a></span>
+                            <a href="{% url 'jot_incomplete' jot.id %}"><i class="far fa-check-circle"></i></a> &nbsp; <span style="text-decoration: line-through"><a href="{% url 'jots_detail' jot.id %}">{{ jot.title }}</a></span>
                         {% else %}
-                            <a href="{% url 'jot_complete' jot.id %}"><i class="far fa-circle"></i></a><a href="{% url 'jots_detail' jot.id %}">{{ jot.title }}</a>
+                            <a href="{% url 'jot_complete' jot.id %}"><i class="far fa-circle"></i></a> &nbsp; <a href="{% url 'jots_detail' jot.id %}">{{ jot.title }}</a>
                         {% endif %}                   
                     <td>
                       <a href="{% url 'jot_delete' jot.id %}"> 

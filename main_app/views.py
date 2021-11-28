@@ -4,8 +4,7 @@ from django.urls import reverse
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-from django.views.generic import ListView, DetailView   
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.edit import CreateView
 from .models import Jot, SubJot
 from .forms import JotForm, SubJotForm
 # from django.urls import reverse
@@ -46,7 +45,7 @@ def deleteJot(request, jot_id):
 def deletesubJot(request, subjot_id):
   subjot = SubJot.objects.get(id=subjot_id)
   subjot.delete()
-  return redirect('jots_index')
+  return HttpResponseRedirect(reverse('jots_detail'))
 
 
 def completeJot(request, jot_id):
