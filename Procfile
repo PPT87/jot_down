@@ -1,1 +1,1 @@
-web: gunicorn jotdowntodoapp.wsgi
+web: gunicorn jot_down.wsgi
