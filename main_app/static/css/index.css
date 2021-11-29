@@ -7,7 +7,7 @@ body{
 
 a{
   color: rgb(37, 37, 37);
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   text-decoration: none;
 }
 
@@ -43,6 +43,12 @@ a{
   text-decoration: underline;
 }
 
+.col-1{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
 .far{
   margin-left: 2%;
 }
@@ -55,6 +61,7 @@ a{
 
 .form-wrapper{
   background-color: rgba(246, 244, 240, 0.3);
+  border-radius: 10px;
   height: 180px;
   margin-left: auto;
   margin-right: auto;
@@ -66,6 +73,17 @@ a{
   margin-left: auto;
   margin-right: auto;
   width: 90%;
+}
+
+.mt-4{
+  align-items: center;
+  display: flex;
+}
+
+.row{
+  align-items: center;
+  display: flex;
+  font-size: 1.5rem;
 }
 
 .row>* {
@@ -83,7 +101,7 @@ a{
   border: none;
   color: red;
   cursor: pointer;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   margin-right: 0;
   overflow: hidden;
   outline: none;
