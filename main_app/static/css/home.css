@@ -56,7 +56,7 @@ h1{
   display: flex;
   justify-content: center;
   margin-left: 50%;
-  margin-top: 4%;
+  margin-top: 9%;
   width: 40%;
 }
 
@@ -74,7 +74,7 @@ input{
 .logo-container{
   display: flex;
   height: 60vh;
-  margin-top: 4%;
+  margin-top: 8%;
   margin-left: 5%;
   position: absolute;
   width: 40%;
