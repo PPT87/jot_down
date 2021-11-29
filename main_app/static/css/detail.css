@@ -7,6 +7,7 @@ body{
 
 a{
   color: rgb(37, 37, 37);
+  font-size: 1.4rem;
   text-decoration: none;
 }
 
@@ -48,6 +49,10 @@ a{
   justify-content: center;
 }
 
+.fa-check-circle{
+  color: green;
+}
+
 .far{
   margin-left: 2%;
 }
@@ -74,6 +79,12 @@ font-weight: 900;
 margin-left: 3%;
 }
 
+h3{
+  color: aliceblue;
+  margin-left: 3%;
+  margin-top: 2%;
+}
+
 .input-group {
   margin-left: auto;
   margin-right: auto;
@@ -98,6 +109,11 @@ margin-left: 3%;
 
 .rounded-pill{
   margin-right: 10%;
+}
+
+.text-muted{
+  font-size: 1.2rem;
+  margin-left: 1%;
 }
 
 .title-wrapper{

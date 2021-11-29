@@ -14,4 +14,6 @@ urlpatterns = [
   path('jots/<int:jot_id>/deletesubjot/<int:subjot_id>/', views.deletesubJot, name="subjot_delete"),
   path('jots/<int:jot_id>/complete', views.completeJot, name="jot_complete"),
   path('jots/<int:jot_id>/incomplete', views.incompleteJot, name="jot_incomplete"),
+  path('jots/<int:jot_id>/complete<int:subjot_id>/', views.completesubJot, name="subjot_complete"),
+  path('jots/<int:jot_id>/incomplete<int:subjot_id>/', views.incompletesubJot, name="subjot_incomplete"),
 ]

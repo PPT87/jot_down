@@ -38,16 +38,11 @@
       <div class="row">
         <div class="col-11">
           {% if jot.complete %}
-          <div class='task-incomplete'>
-            <a href="{% url 'jot_incomplete' jot.id %}"><i class="far fa-check-circle"></i></a> &nbsp; &nbsp; <span
-            style="text-decoration: line-through"><a href="{% url 'jots_detail' jot.id %}">{{ jot.title }}</a></span>
-          </div>
-          
+          <a href="{% url 'jot_incomplete' jot.id %}"><i class="far fa-check-circle"></i></a> &nbsp; &nbsp; <i><span
+            style="text-decoration: line-through"><a href="{% url 'jots_detail' jot.id %}">{{ jot.title }}</a></span></i>
           {% else %}
-          <div class='task-complete'>
           <a href="{% url 'jot_complete' jot.id %}"><i class="far fa-circle"></i></a> &nbsp; &nbsp;<a
-            href="{% url 'jots_detail' jot.id %}">{{ jot.title }}</a>          
-          </div>
+            href="{% url 'jots_detail' jot.id %}">{{ jot.title }}</a>
           {% endif %}
         </div>
 

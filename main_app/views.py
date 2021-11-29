@@ -74,6 +74,20 @@ def incompleteJot(request, jot_id):
   return redirect('jots_index')
 
 @login_required
+def completesubJot(request, jot_id, subjot_id):
+  subjot = SubJot.objects.get(id=subjot_id)
+  subjot.complete = True
+  subjot.save()
+  return redirect('jots_detail', jot_id=jot_id)
+
+@login_required
+def incompletesubJot(request, jot_id, subjot_id):
+  subjot = SubJot.objects.get(id=subjot_id)
+  subjot.complete = False
+  subjot.save()
+  return redirect('jots_detail', jot_id=jot_id)
+
+@login_required
 def jots_detail(request, jot_id):
   jot = Jot.objects.get(id=jot_id)
   subjot_form = SubJotForm()
