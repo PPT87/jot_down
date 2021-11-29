@@ -47,17 +47,17 @@ def deleteJot(request, jot_id):
     return redirect('jots_index')
 
 @login_required
-def deletesubJot(request, subjot_id):
+def deletesubJot(request, jot_id, subjot_id):
   subjot = SubJot.objects.get(id=subjot_id)
   subjot.delete()
-  return HttpResponseRedirect(reverse('jots_detail'))
+  return redirect('jots_detail', jot_id=jot_id)
 
-@login_required
-def deletecompleteJot(request, jot_id):
-  delete= Jot.objects.filter(id=jot_id)
-  delete.complete = True
-  delete.save()
-  return redirect('jots_index')
+# @login_required
+# def deletecompleteJot(request, jot_id):
+#   deletecomplete= Jot.objects.filter(id=jot_id)
+#   deletecomplete.complete = True
+#   deletecomplete.delete()
+#   return redirect('jots_index')
 
 @login_required
 def completeJot(request, jot_id):
