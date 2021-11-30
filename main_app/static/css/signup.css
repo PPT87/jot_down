@@ -36,6 +36,11 @@ label{
   padding-top: 15px;
 }
 
+.login-text{
+  margin-bottom: 0;
+  padding-top: 15px;
+}
+
 h1{
   color: aliceblue;
   margin-bottom: auto;

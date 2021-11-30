@@ -21,11 +21,10 @@
     {% csrf_token %}
     {{ form.as_p }}
     <input type="hidden" name="next" value="{{ next }}">
-    <button type="submit" class="button">Login</button>
+    <button type="submit" class="button btn btn-sm btn-outline-dark" type='submit'>Login</button>
   </form>
-  <p>Already have an account? <a href="{% url 'signup' %}">Login</a></p>
+  <p class='signup-text'>New to Jot Down? &nbsp; <a href="{% url 'signup' %}"> Sign Up </a></p>
   </div>
 </div>
 {% endif %}
-
 {% endblock %}
