@@ -1,6 +1,4 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponseRedirect
-from django.urls import reverse
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
@@ -9,7 +7,6 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import CreateView
 from .models import Jot, SubJot
 from .forms import JotForm, SubJotForm
-# from django.urls import reverse
 
 
 # Create your views here.
