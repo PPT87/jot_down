@@ -9,4 +9,3 @@ function removeComplete() {
       card.remove()
     }
   }
-
