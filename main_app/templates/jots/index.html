@@ -19,14 +19,14 @@
 
 <br>
 {% if not jots %}
-<h3>You have no jots</h3>
+<h2>You have no jots</h2>
 {% else %}
 <div class="row mt-4">
   <div class="col-9">
     <h2 class="card-title">My Jots</h2>
   </div>
   <div class="col-2">
-    <a href="{% url 'jot_deletecomplete' jot.id %}">
+    <a href="">
       <button id='removeCompleteBtn' type="button" class="btn btn-sm btn-outline-info rounded-pill">Remove Completed</button>
     </a>
   </div>
@@ -38,8 +38,7 @@
       <div class="row">
         <div class="col-11">
           {% if jot.complete %}
-          <a href="{% url 'jot_incomplete' jot.id %}"><i id='check-circle' class="far fa-check-circle"></i></a> &nbsp; &nbsp; <i><span
-            style="text-decoration: line-through"><a href="{% url 'jots_detail' jot.id %}">{{ jot.title }}</a></span></i>
+          <a href="{% url 'jot_incomplete' jot.id %}"><i id='check-circle' class="far fa-check-circle"></i></a> &nbsp; &nbsp; <i><span style="text-decoration: line-through" ><a class='complete-text' href="{% url 'jots_detail' jot.id %}">{{ jot.title }}</a></span></i>
           {% else %}
           <a href="{% url 'jot_complete' jot.id %}"><i class="far fa-circle"></i></a> &nbsp; &nbsp;<a
             href="{% url 'jots_detail' jot.id %}">{{ jot.title }}</a>

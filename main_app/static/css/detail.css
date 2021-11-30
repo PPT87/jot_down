@@ -1,7 +1,7 @@
 body{
-  background-color: rgb(80, 80, 80);
+  background-image: url(../images/notebook.jpeg);
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   font-family: 'Nunito', sans-serif;
 }
 
@@ -36,7 +36,7 @@ a{
 }
 
 .card-title{
-  color: aliceblue;
+  color: rgb(37, 37, 37);
   margin-left: 20%;
   font-size: 3rem;
   font-weight: 900;
@@ -64,7 +64,8 @@ a{
 }
 
 .form-wrapper{
-  background-color: rgba(246, 244, 240, 0.3);
+  background-color: rgba(245, 245, 245, 0.7);
+  border: 1px solid black;
   border-radius: 10px;
   height: 120px;
   margin-left: auto;
@@ -80,9 +81,13 @@ margin-left: 3%;
 }
 
 h3{
-  color: aliceblue;
+  color: rgb(37, 37, 37);
   margin-left: 3%;
   margin-top: 2%;
+}
+
+.complete-text{
+  color: grey;
 }
 
 .input-group {

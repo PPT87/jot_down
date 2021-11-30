@@ -1,11 +1,13 @@
-{% extends 'base.html' %}
+{% extends 'base.html'%}
+{% load static %}
 
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}">
 
 <h1>About Jot Down</h1>
 <hr />
 <p>
-  I tend to easily forget things as I get older and need something to quickly jot something down.  Some apps just take too long or are too complicated to use making me not want to use it or convince myself, "I won't forget that". 
+  Stop trying to convince yourself that you "won't forget" or your mental note is good enough.  Jot it down already! This easy todo app let's you quickly jot things down, add more deatils if you need it, mark it complete and delete it.  Give it a try!
 </p>
 
 {% endblock %}
