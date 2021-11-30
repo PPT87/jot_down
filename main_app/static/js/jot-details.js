@@ -1,11 +1,19 @@
-const card = document.getElementById("card");
-let removeCompleteBtn = document.getElementById("removeCompleteBtn");
-let checkCircle = document.getElementById("check-circle");
+/*------------------------ Cached Element References ------------------------*/
+const jotBtn = document.getElementById('button-addon2')
 
-document.getElementById("removeCompleteBtn").addEventListener("click", removeComplete);
 
-function removeComplete() {
-    if (checkCircle = True){
-      card.remove()
-    }
-  }
+/*----------------------------- Event Listeners -----------------------------*/
+//document.getElementById('jotBtn').addEventListener('click', addJot)
+
+
+/*----------------------------- Functions -----------------------------*/
+
+function addJot(){
+  console.log('this is working')
+  document.getElementById('button-addon2').innerText = "Jot Added!"
+
+  clearTimeout(timeout)
+  timeout = setTimeout(function(){
+    jotBtn.innerHTML = 'Jot Down!'
+  }, 2000);
+}

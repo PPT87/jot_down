@@ -1,6 +1,7 @@
 body{
   background-attachment: fixed;
   background-image: url(../images/notebook.jpeg);
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   font-family: 'Nunito', sans-serif;
@@ -14,6 +15,10 @@ a{
 
 .btn-success{
   margin-top: 60px;
+}
+
+.btn-warning{
+  background-color: rgba(255, 208, 0, 0.7);
 }
 
 .card-body{
