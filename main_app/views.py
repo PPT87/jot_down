@@ -5,6 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import CreateView
+import time
 from .models import Jot, SubJot
 from .forms import JotForm, SubJotForm
 
@@ -27,6 +28,7 @@ class jotCreate(LoginRequiredMixin, CreateView):
   model = Jot
   fields = ['title', 'complete'] 
   def form_valid(self, form):
+    time.sleep(0.5)
     form.instance.user = self.request.user
     return super().form_valid(form)
 
@@ -34,6 +36,7 @@ class subjotCreate(LoginRequiredMixin, CreateView):
   model = SubJot
   fields = ['title', 'complete']
   def form_valid(self, form):
+    time.sleep(0.5)
     form.instance.jot_id = self.kwargs['jot_id']
     return super().form_valid(form)
 
