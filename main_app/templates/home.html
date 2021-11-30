@@ -4,14 +4,17 @@
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
 
-<div class='logo-container'>
-  {% comment %} <img src="{% static 'images/homepagelogo.svg' %}" alt="A picture of a pencil spelling jot down" /> {% endcomment %}
-</div>
 
+<section class="logo-container">
+  <div class='homelogo-container'>
+    <img class='homelogo'src="{% static 'images/homepagelogo.svg' %}" alt="Text that read jot down with pencil" />
+  </div>
+</section>
+
+{% if not user.is_authenticated %}
 <div class="header-bar">
     <h1>Login</h1>
 </div>
-{% if not user.is_authenticated %}
 <div class='card-body'>
   <form action="{% url 'home' %}" method="post" class="login">
   <div class='content-container'>

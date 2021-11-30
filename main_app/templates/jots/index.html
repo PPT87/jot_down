@@ -26,19 +26,19 @@
     <h2 class="card-title">My Jots</h2>
   </div>
   <div class="col-2">
-    <a href="">
-      <button type="button" class="btn btn-sm btn-outline-info rounded-pill">Remove Completed</button>
+    <a href="{% url 'jot_deletecomplete' jot.id %}">
+      <button id='removeCompleteBtn' type="button" class="btn btn-sm btn-outline-info rounded-pill">Remove Completed</button>
     </a>
   </div>
   <br>
 
   {% for jot in jots %}
-  <div class="card mt-3 shadow-sm">
+  <div class="card mt-3 shadow-sm" id='card'>
     <div class="card-body">
       <div class="row">
         <div class="col-11">
           {% if jot.complete %}
-          <a href="{% url 'jot_incomplete' jot.id %}"><i class="far fa-check-circle"></i></a> &nbsp; &nbsp; <i><span
+          <a href="{% url 'jot_incomplete' jot.id %}"><i id='check-circle' class="far fa-check-circle"></i></a> &nbsp; &nbsp; <i><span
             style="text-decoration: line-through"><a href="{% url 'jots_detail' jot.id %}">{{ jot.title }}</a></span></i>
           {% else %}
           <a href="{% url 'jot_complete' jot.id %}"><i class="far fa-circle"></i></a> &nbsp; &nbsp;<a
@@ -58,5 +58,6 @@
     </div>
   </div>
   {% endfor %}
-  {% endif%}
+{% endif%}
+
   {% endblock %}
