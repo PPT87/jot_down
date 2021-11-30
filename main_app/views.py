@@ -60,12 +60,9 @@ def deletecompleteJot(request):
 
 @login_required
 def deletecompletesubJot(request, jot_id):
-  if SubJot.objects.filter(complete__exact=True):
-    deletecompletesub = SubJot.objects.filter(complete__exact=True)
-    deletecompletesub.delete()
-    return redirect('jots_details', jot_id=jot_id)
-  else:
-    return redirect('jots_details', jot_id=jot_id)
+  deletecompletesub = SubJot.objects.filter(complete__exact=True)
+  deletecompletesub.delete()
+  return redirect('jots_detail', jot_id=jot_id)
 
 @login_required
 def completeJot(request, jot_id):
