@@ -32,9 +32,9 @@ How many times have you heard or said, "how could you forget to...." or "you did
 ## Features:
 - Django built-in authentication.
 - Responsive design for desktop and mobile view.
-<br><br> <img src="main_app/static/images/mobileview.png" width='425'/> &nbsp; &nbsp; <img src="main_app/static/images/mobileview2.png" width='425'/>
+<br><br> <img src="main_app/static/images/mobileview.png" width='300'/> &nbsp; &nbsp; <img src="main_app/static/images/mobileview2.png" width='425'/>
 - Added DOM manipulation to change the 'Jot Down!' button to 'Jot Added!' and change to orange for let the user know it's been added.
-<br><br> <img src="main_app/static/images/jotbuttons.png" width='425'/>
+<br><br> <img src="main_app/static/images/jotbuttons.png" width='300'/>
 
 ## What I Used:
 - Django
